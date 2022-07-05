@@ -6,6 +6,11 @@ __pycache__/
 # C extensions
 *.so
 
+# USACO
+
+*.in
+*.out
+
 # Distribution / packaging
 .Python
 build/
