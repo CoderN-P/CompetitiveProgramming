@@ -10,6 +10,7 @@ __pycache__/
 
 *.in
 *.out
+*.txt
 
 # Distribution / packaging
 .Python
