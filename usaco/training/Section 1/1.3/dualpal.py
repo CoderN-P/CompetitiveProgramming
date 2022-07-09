@@ -4,10 +4,10 @@ LANG: PYTHON3
 TASK: dualpal
 """
 
-n, s = list(map(int, open('dualpal.in', 'r').readline().split()))
-out = open('dualpal.out', 'w')
+n, s = list(map(int, open("dualpal.in", "r").readline().split()))
+out = open("dualpal.out", "w")
 
-numbers = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
+numbers = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"]
 
 
 def convert(base, input):
@@ -16,7 +16,7 @@ def convert(base, input):
         mods.append(numbers[input % base])
         input //= base
     mods.reverse()
-    return ''.join(mods)
+    return "".join(mods)
 
 
 num = s + 1
@@ -34,8 +34,8 @@ while num > s:
             vals.append(b)
 
     if len(vals) > 1:
-        results.append(str(num) + '\n')
+        results.append(str(num) + "\n")
 
     num += 1
 
-out.write(''.join(results))
+out.write("".join(results))

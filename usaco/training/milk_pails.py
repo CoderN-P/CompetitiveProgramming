@@ -6,4 +6,3 @@ TASK: pails
 
 file_in = open("pails.in", "r")
 file_out = open("pails.out", "w")
-

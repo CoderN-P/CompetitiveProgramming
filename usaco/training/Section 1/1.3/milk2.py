@@ -42,4 +42,4 @@ else:
     time_in_between = max([cows[n][0] - cows[n - 1][1] for n in range(1, len(cows))])
     longest_time = max([cow[1] - cow[0] for cow in cows])
 
-file_out.write(f'{longest_time} {time_in_between}\n')
+file_out.write(f"{longest_time} {time_in_between}\n")

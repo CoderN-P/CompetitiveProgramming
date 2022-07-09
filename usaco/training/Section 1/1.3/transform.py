@@ -55,4 +55,4 @@ elif pattern_before == pattern_after:
 else:
     result = 7
 
-file_out.write(str(result)+'\n')
+file_out.write(str(result) + "\n")

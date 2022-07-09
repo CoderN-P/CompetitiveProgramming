@@ -13,7 +13,7 @@ people_amt = int(file_in.readline())
 
 people = {}
 
-for n in range(1, people_amt+1):
+for n in range(1, people_amt + 1):
     people[file_in.readline().strip()] = 0
 
 for money in people.values():
@@ -21,14 +21,13 @@ for money in people.values():
     money = list(map(int, file_in.readline().split()))
     if money[1] == 0:
         continue
-    money_per_person = money[0]//money[1]
-    people[person] -= (money[0]-(money[0]%money[1]))
+    money_per_person = money[0] // money[1]
+    people[person] -= money[0] - (money[0] % money[1])
     for n in range(0, money[1]):
         reciever = file_in.readline().strip()
         people[reciever] += money_per_person
-s = ''
+s = ""
 for person, money in people.items():
-        s += f'{person} {money}\n'
+    s += f"{person} {money}\n"
 
 file_out.write(s)
-

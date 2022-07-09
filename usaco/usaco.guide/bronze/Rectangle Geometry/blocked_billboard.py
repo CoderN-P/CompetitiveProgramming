@@ -19,7 +19,8 @@ def overlap_area(a, a2):
         return (a[2] - a[0]) * (a[3] - a[1])
 
     return ((a[2] - a[0]) * (a[3] - a[1])) - (
-                (min(a[2], a2[2]) - max(a[0], a2[0])) * (min(a[3], a2[3]) - max(a[1], a2[1])))
+        (min(a[2], a2[2]) - max(a[0], a2[0])) * (min(a[3], a2[3]) - max(a[1], a2[1]))
+    )
 
 
-file_out.write(str(overlap_area(n1, n3) + overlap_area(n2, n3)) + '\n')
+file_out.write(str(overlap_area(n1, n3) + overlap_area(n2, n3)) + "\n")

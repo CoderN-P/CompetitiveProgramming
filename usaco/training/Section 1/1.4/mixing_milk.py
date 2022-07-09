@@ -7,7 +7,10 @@ TASK: milk
 file_in = open("milk.in", "r")
 file_out = open("milk.out", "w")
 milk_amt, farmer_amt = list(map(int, file_in.readline().split()))
-farmers = sorted([list(map(int, file_in.readline().split())) for _ in range(0, farmer_amt)], key=lambda x: x[0])
+farmers = sorted(
+    [list(map(int, file_in.readline().split())) for _ in range(0, farmer_amt)],
+    key=lambda x: x[0],
+)
 cost = 0
 
 for n in range(0, milk_amt):
@@ -17,5 +20,4 @@ for n in range(0, milk_amt):
     cost += farmers[0][0]
     farmers[0][1] -= 1
 
-file_out.write(str(cost)+'\n')
-
+file_out.write(str(cost) + "\n")
