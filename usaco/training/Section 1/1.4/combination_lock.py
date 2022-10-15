@@ -3,35 +3,20 @@ ID: neel.pa1
 LANG: PYTHON3
 TASK: combo
 """
-
 file_in = open('combo.in', 'r')
 file_out = open('combo.out', 'w')
-
 n = int(file_in.readline())
 fj_combo = list(map(int, file_in.readline().split()))
 m_combo = list(map(int, file_in.readline().split()))
-perms = 0
-char_count = [0] * n
+if n < 5:
+	result = n**3
+else:
+	result = 250
+	j = []
+	for a, b in zip(fj_combo, m_combo):
+		a_diff = abs(b - a)
+		if a_diff <= 4 or a_diff >= (n - 4):
+			j.append(max((5-(abs(a-b))), (5-n+a_diff)))
+	result -= j[0]*j[1]*j[2] if len(j) != 0 else 0
+file_out.write(str(result)+'\n')
 
-
-def search(curr):
-	global perms
-	if len(curr) == 3:
-		a = []
-		b = []
-		for j, c in enumerate(curr):
-			a.append(abs(fj_combo[j]-c))
-			b.append(abs(m_combo[j]-c))
-		if all([a1<=2 or (n-a1)<=2 for a1 in a]) or all([b1<=2 or (n-b1)<=2 for b1 in b]):
-			perms += 1
-
-		return
-	for i in range(1, n + 1):
-		curr1 = curr.copy()
-		curr1.append(i)
-		search(curr1)
-
-
-
-search([])
-file_out.write(str(perms)+'\n')
