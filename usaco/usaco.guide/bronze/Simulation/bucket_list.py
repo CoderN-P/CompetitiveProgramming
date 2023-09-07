@@ -5,39 +5,30 @@ TASK: blist
 """
 
 fin = open("blist.in", "r")
+fout = open("blist.out", "w")
 
-max_time = 1000
-event = [0 for i in range(max_time + 1)]
+n = int(fin.readline())
+events = sorted([list(map(int, fin.readline().split())) for _ in range(0, n)], key=lambda x: x[0])
 
-n = int(fin.readline().strip())
+mtime = events[-1][1]
+used = 0
+for i in range(0, 1001):
+    tmp = 0
+    for event in events:
+        if event[0] <= i <= event[1]:
+            tmp += event[2]
 
-for i in range(n):
-    start, end, amt = map(int, fin.readline().strip().split())
+    used = max(tmp, used)
 
-    # at time start, cow i needs to be milked, so
-    # we'll need amt additional buckets (hence adding amt)
-    event[start] += amt
+print(used, file=fout)
 
-    # at time end, cow i is done milking, so we can free up
-    # amt buckets (hence subtracting amt)
-    event[end] -= amt
-"""
-res represents the maximum number of buckets we'll need 
-to use at any given time and cur represents 
-how many buckets we need to use at the current 
-time we're processing
-"""
-res = 0
-cur = 0
 
-for i in range(max_time + 1):
-    # at time i, the number of buckets in use changes by event[i]
-    # so we want to update the number of buckets
-    # we are currently using accordingly
-    cur += event[i]
 
-    # we want res to be the greatest number of buckets
-    # we need to use at any given point in time
-    res = max(res, cur)
 
-print(res, file=open('blist.out', 'w'))
+
+
+
+
+
+
+

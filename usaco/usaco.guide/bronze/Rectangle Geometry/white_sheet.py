@@ -27,6 +27,6 @@ def overlap_area(a, a2, b=False):
 a = (white[2] - white[0]) * (white[3] - white[1])
 
 if overlap_area(white, black_1) + overlap_area(white, black_2) - overlap_area(black_1, black_2, b=True) >= a:
-    print('NO\n')
+    print('NO\cn')
 else:
     print('YES\n')
