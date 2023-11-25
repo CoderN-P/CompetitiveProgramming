@@ -5,15 +5,31 @@ TASK: acowdemia1
 """
 
 n, l = list(map(int, input().split()))
-papers = list(map(int, input().split()))
+papers = sorted(list(map(int, input().split())), reverse=True)
 
 
-def calculate_h_index(papers):
-    if len(papers) == 1:
-        return 1 if papers[0] >= 1 else 0
-    papers.sort()
-    for n, i in enumerate(papers):
-        if i + n >= len(papers):
-            return papers[n - 1]
+def calcHIDX():
+    h = 0
+    for i in range(0, n):
+        if papers[i] >= i+1:
+            h += 1
+        else:
+            break
+    return h
+
+v = calcHIDX()
+
+if v == n:
+    print(v)
+elif papers[v] < v:
+    print(v)
+else:
+    print(v+1 if l > v else v)
+
+
+
+
+
+
 
 
